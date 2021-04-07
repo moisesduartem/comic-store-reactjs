@@ -1,11 +1,20 @@
-import React from 'react';
-import Home from './pages/Home';
+import React, { Fragment } from 'react';
+
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyle } from './globalStyles';
+
+import Routes from './routes';
 
 function App() {
   return (
-    <div className="app">
-      <Home />
-    </div>
+    <ThemeProvider theme={{}}>
+      <Fragment>
+        <div id="app">
+          <Routes />
+        </div>
+        <GlobalStyle />
+      </Fragment>
+    </ThemeProvider>
   );
 }
 
