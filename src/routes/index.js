@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch } from 'react-router-dom';
 
 import { PageContent } from './styles';
 
@@ -9,8 +9,7 @@ import AppHeader from '../components/AppHeader';
 
 import ProtectedRoutes from './protected.routes';
 import GuestRoutes from './guest.routes';
-
-import Home from '../pages/Home';
+import CommmonRoutes from './common.routes';
 
 function Routes() {
 
@@ -22,7 +21,7 @@ function Routes() {
             <AppHeader />
             <PageContent>
                 <Switch>
-                    <Route path='/' component={Home} />
+                    <CommmonRoutes />
                     <ApplicationRoutes />
                 </Switch>
             </PageContent>
