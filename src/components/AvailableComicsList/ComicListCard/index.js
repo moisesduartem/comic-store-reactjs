@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
+
 import { Card, Icon, Image } from 'semantic-ui-react';
+
+import unkownHeroPathImage from '../../../assets/images/unknown_hero.jpg';
 
 function getModifiedAt({ date }) {
     
     const _date = new Date(date);
-
-    console.log(_date);
     
     if (_date == 'Invalid Date') {
         return '';
@@ -15,8 +16,6 @@ function getModifiedAt({ date }) {
 }
 
 function ComicListCard({ data }) {
-
-    const unkownHeroPathImage = '../../../assets/images/unknown_hero.jpg';
 
     const comicPrice = (data?.prices[0]?.price != 0 ? data?.prices[0]?.price : "FREE");
 
