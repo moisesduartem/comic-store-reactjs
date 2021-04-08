@@ -1,18 +1,19 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ComicListCard from './ComicListCard';
+import { ComicGallery } from './styles';
 
 function AvailableComicsList({ comics }) {
     return (
-        <Fragment>
+        <ComicGallery>
             {(
                 comics.map((comic, index) => (
                     <ComicListCard
-                        data={comic} 
-                        key={comic?.id} 
+                        data={comic}
+                        key={comic?.id}
                     />
                 ))
             )}
-        </Fragment>
+        </ComicGallery>
     );
 }
 

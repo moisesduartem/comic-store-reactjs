@@ -20,11 +20,10 @@ function ComicListCard({ data }) {
     const comicPrice = (data?.prices[0]?.price != 0 ? data?.prices[0]?.price : "FREE");
 
     const marvelImagePath = data?.images[0]?.path;
-    const cardImage = marvelImagePath ? `${marvelImagePath}/portrait_incredible.jpg` : unkownHeroPathImage;
+    const cardImage = marvelImagePath ? `${marvelImagePath}/standard_incredible.jpg` : unkownHeroPathImage;
 
     return (
         <Fragment>
-
             <Card>
                 <Image src={cardImage} wrapped ui={false} />
                 <Card.Content>
