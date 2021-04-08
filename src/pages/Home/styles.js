@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { Container } from 'semantic-ui-react';
 
 export const HomeContainer = styled(Container)`
-    margin-top: 5em;
-
+    
     img {
         margin-top: 2rem;
         border-radius: 5px;

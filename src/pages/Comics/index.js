@@ -1,10 +1,12 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import AvailableComicsList from '../../components/AvailableComicsList';
+
 import { marvel } from '../../services/marvel';
+
+import AvailableComicsList from '../../components/AvailableComicsList';
 
 function Comics() {
 
-    const [comics, setComics] = useState(undefined);
+    const [comics, setComics] = useState();
 
     useEffect(() => {
 
@@ -24,9 +26,9 @@ function Comics() {
 
     return (
         <Fragment>
-            {/* <AvailableComicsList
+            <AvailableComicsList
                 comics={comics ?? []}
-            /> */}
+            />
         </Fragment>
     );
 }

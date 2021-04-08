@@ -6,7 +6,10 @@ function AvailableComicsList({ comics }) {
         <Fragment>
             {(
                 comics.map((comic, index) => (
-                    <ComicListCard key={comic?.id} />
+                    <ComicListCard
+                        data={comic} 
+                        key={comic?.id} 
+                    />
                 ))
             )}
         </Fragment>
