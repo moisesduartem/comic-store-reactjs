@@ -4,17 +4,7 @@ import { Link } from 'react-router-dom';
 import { Card, Icon, Image } from 'semantic-ui-react';
 
 import unkownHeroPathImage from '../../../assets/images/unknown_hero.jpg';
-
-function getModifiedAt({ date }) {
-    
-    const _date = new Date(date);
-    
-    if (_date == 'Invalid Date') {
-        return '';
-    }
-
-    return `Modificado em ${((_date.getDate())) + "/" + ((_date.getMonth() + 1)) + "/" + _date.getFullYear()}`;
-}
+import { getModifiedAt, limitText } from '../../../utils/functions';
 
 function ComicListCard({ data }) {
 
@@ -22,15 +12,6 @@ function ComicListCard({ data }) {
 
     const marvelImagePath = data?.images[0]?.path;
     const cardImage = marvelImagePath ? `${marvelImagePath}/standard_incredible.jpg` : unkownHeroPathImage;
-
-    function limitText({ value, charLimit }) {
-    
-        if (!!value) {
-            return (value.length < charLimit) ? value : value.substr(0, charLimit) + "..."; 
-        }
-
-        return '';
-    } 
 
     return (
         <Fragment>
