@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 import { Card, Icon, Image } from 'semantic-ui-react';
 
@@ -22,6 +23,15 @@ function ComicListCard({ data }) {
     const marvelImagePath = data?.images[0]?.path;
     const cardImage = marvelImagePath ? `${marvelImagePath}/standard_incredible.jpg` : unkownHeroPathImage;
 
+    function limitText({ value, charLimit }) {
+    
+        if (!!value) {
+            return (value.length < charLimit) ? value : value.substr(0, charLimit) + "..."; 
+        }
+
+        return '';
+    } 
+
     return (
         <Fragment>
             <Card>
@@ -32,7 +42,7 @@ function ComicListCard({ data }) {
                         <span className='date'>{getModifiedAt({ date: data?.modified })}</span>
                     </Card.Meta>
                     <Card.Description>
-                        {data?.description}
+                        {limitText({ value: data?.description, charLimit: 120 })}
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
