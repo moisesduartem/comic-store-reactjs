@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import ComicListCard from './ComicListCard';
 
-function AvailableComicsList() {
+function AvailableComicsList({ comics }) {
     return (
-        <div>
-            <h1>AvailableComicsList!</h1>
-        </div>
+        <Fragment>
+            {(
+                comics.map((comic, index) => (
+                    <ComicListCard key={comic?.id} />
+                ))
+            )}
+        </Fragment>
     );
 }
 

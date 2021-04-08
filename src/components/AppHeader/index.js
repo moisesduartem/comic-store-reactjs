@@ -5,7 +5,7 @@ function AppHeader() {
     return (
         <Fragment>
             <Menu fixed="top" inverted color="red">
-                <Menu.Item as="a" header position="left">
+                <Menu.Item as="a" header position="left" href="/">
                     Comic Store
                 </Menu.Item>
                 <Menu.Item position="right">
