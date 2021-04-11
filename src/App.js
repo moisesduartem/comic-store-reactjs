@@ -1,20 +1,20 @@
 import React, { Fragment } from 'react';
 
-import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './globalStyles';
+import { ApplicationContextProvider } from './store/context';
 
 import Routes from './routes';
 
 function App() {
   return (
-    <ThemeProvider theme={{}}>
+    <ApplicationContextProvider>
       <Fragment>
         <div id="app">
           <Routes />
         </div>
         <GlobalStyle />
       </Fragment>
-    </ThemeProvider>
+    </ApplicationContextProvider>
   );
 }
 
