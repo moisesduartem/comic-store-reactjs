@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-export const errorToast = message => toast.error(message, {
+const error = message => toast.error(message, {
     position: "bottom-right",
     autoClose: 5000,
     hideProgressBar: false,
@@ -9,3 +9,7 @@ export const errorToast = message => toast.error(message, {
     draggable: true,
     progress: undefined,
 });
+
+export const toasts = {
+    error,
+};

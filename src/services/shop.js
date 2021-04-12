@@ -1,6 +1,6 @@
 import axios from "axios";
 import https from "https";
-import { errorToast } from "../utils/customToasts";
+import { toasts } from "../utils/customToasts";
 
 const shopApi = axios.create({
     httpsAgent: new https.Agent({
@@ -17,7 +17,7 @@ shopApi.interceptors.response.use(
         const status = err.response.status;
 
         if (status >= 400) {
-            errorToast(err.response.data?.message ?? "Ocorreu um erro inesperado.");
+            toasts.error(err.response.data?.message ?? "Ocorreu um erro inesperado.");
             return;
         }
         return Promise.reject(err);
