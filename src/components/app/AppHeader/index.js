@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Dropdown, Menu } from 'semantic-ui-react';
 import { LoginModal } from '../LoginModal';
+import { RegisterModal } from '../RegisterModal';
 
 function AppHeader() {
 
@@ -16,7 +17,9 @@ function AppHeader() {
                             <LoginModal>
                                 <Dropdown.Item onClick={() => { }}>Acesse com sua conta</Dropdown.Item>
                             </LoginModal>
-                            <Dropdown.Item>Não possui conta? <strong>Junte-se a nós!</strong></Dropdown.Item>
+                            <RegisterModal>
+                                <Dropdown.Item>Não possui conta? <strong>Junte-se a nós!</strong></Dropdown.Item>
+                            </RegisterModal>
                         </Dropdown.Menu>
                     </Dropdown>
                 </Menu.Item>
