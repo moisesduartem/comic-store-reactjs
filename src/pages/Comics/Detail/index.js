@@ -1,4 +1,5 @@
 import React from "react";
+import { GoBackArrow } from "../../../components/core/Icons";
 
 function ComicDetail({ match }) {
 
@@ -6,6 +7,7 @@ function ComicDetail({ match }) {
     
     return (
         <div>
+            <GoBackArrow to="/comics" />
             {comicId}
         </div>
     );

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 
+import { Link } from 'react-router-dom';
 import { Card, Icon, Image } from 'semantic-ui-react';
 
 import unkownHeroPathImage from '../../../../assets/images/unknown_hero.jpg';
@@ -17,7 +18,11 @@ function ComicListCard({ data }) {
             <Card>
                 <Image src={cardImage} wrapped ui={false} />
                 <Card.Content>
-                    <Card.Header as="a">{data.title}</Card.Header>
+                    <Card.Header as="a">
+                        <Link to={`comics/` + data.id}>
+                            {data.title}
+                        </Link>
+                    </Card.Header>
                     <Card.Meta>
                         <span className='date'>{getModifiedAt({ date: data?.modified })}</span>
                     </Card.Meta>
