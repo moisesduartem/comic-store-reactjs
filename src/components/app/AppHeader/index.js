@@ -15,7 +15,7 @@ function AppHeader() {
                     Comic Store
                 </Menu.Item>
                 <Menu.Item position="right">
-                    <Dropdown text={user?.name ?? "Login"}>
+                    <Dropdown text={user?.name.split(" ")[0] ?? "Login"}>
                         <Dropdown.Menu direction="left">
                             <HeaderOptions user={user} />
                         </Dropdown.Menu>

@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "../../../hooks/useForm";
 import { Button, Form, Message } from 'semantic-ui-react';
 import { CustomModal } from "../../core/CustomModal";
+import { shop } from "../../../services/shop";
+import { toasts } from "../../../utils/customToasts";
 
 function RegisterModal({ children }) {
 
@@ -22,8 +24,13 @@ function RegisterModal({ children }) {
 
     }, [form]);
 
-    function handleSubmit(e) {
-
+    async function handleSubmit(e) {
+        const { name, email, username, password } = form;
+        const response = await shop.register({ name, email, username, password });
+        
+        if (response.status === 201 && !!response.data) {
+            toasts.success(`Cadastrado com sucesso! Já pode entrar com seu email, ${name.split(" ")[0]}!`)
+        }
     }
 
     return (

@@ -25,19 +25,19 @@ shopApi.interceptors.response.use(
 );
 
 const shopRoutes = {
-    login: "/v1/account/login"
+    login: "/v1/account/login",
+    register: "/v1/account/register",
 };
 
 const shop = {
     api: shopApi,
     routes: shopRoutes,
     async login({ email, password }) {
-        try {
-            return await this.api.post(this.routes.login, { email, password });
-        } catch (err) {
-            console.log(err?.response?.data.message);
-        }
-    }
+        return await this.api.post(this.routes.login, { email, password });
+    },
+    async register({ name, email, username, password }) {
+        return await this.api.post(this.routes.register, { name, email, username, password });
+    },
 };
 
 export {
