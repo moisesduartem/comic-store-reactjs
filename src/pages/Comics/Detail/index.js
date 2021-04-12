@@ -27,8 +27,6 @@ function ComicDetail({ match }) {
             loadComic();
         }
 
-        console.log(comic);
-
     }, [comic]);
 
     return (

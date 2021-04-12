@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Divider, Grid, Header, Icon, Image, Step, Tab } from "semantic-ui-react";
+import { marvel } from "../../../../../services/marvel";
 import { Pane } from "../styles";
 
-const panes = ({ comic }) => ([
+const panes = ({ comic, characters }) => ([
     {
         menuItem: "Detalhes",
         render: () => (
@@ -33,6 +34,10 @@ const panes = ({ comic }) => ([
                             <h3>Descrição</h3>
                             <article>{comic?.description}</article>
                         </div>
+                        <div>
+                            <h3>Personagens</h3>
+                            <article>{comic?.description}</article>
+                        </div>
                     </div>
                 </main>
             </Pane>
@@ -40,6 +45,27 @@ const panes = ({ comic }) => ([
     },
 ]);
 
-export const DetailsTab = ({ comic }) => (
-    <Tab menu={{ secondary: true, pointing: true }} panes={panes({ comic })} />
-);
+function DetailsTab({ comic }) {
+
+    const [characters, setCharacters] = useState();
+
+    useEffect(() => {
+
+        const loadComics = async () => {
+            const response = await marvel.getComicCharacters({ comicId: comic.id });
+            setCharacters(response.data.data.results);
+        };
+
+
+        if (!characters) {
+            loadComics();
+        }
+
+    }, [characters]);
+
+    return (
+        <Tab menu={{ secondary: true, pointing: true }} panes={panes({ comic, characters })} />
+    );
+};
+
+export { DetailsTab };

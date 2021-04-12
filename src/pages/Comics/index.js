@@ -19,8 +19,6 @@ function Comics() {
             loadComics();
         }
 
-        console.log(comics);
-
     }, [comics]);
 
     return (
