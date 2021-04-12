@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+
 import { DetailedComic } from "../../../components/app/DetailedComic";
-import { GoBackArrow } from "../../../components/core/Arrow/GoBack";
 import { marvel } from "../../../services/marvel";
 
 function ComicDetail({ match }) {
@@ -33,7 +33,6 @@ function ComicDetail({ match }) {
 
     return (
         <div>
-            <GoBackArrow to="/comics" />
             {!!comicExists ? <DetailedComic comic={comic} /> : <h1>O quadrinho buscado não foi encontrado :(</h1>}
         </div>
     );

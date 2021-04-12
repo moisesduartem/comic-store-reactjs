@@ -6,6 +6,7 @@ export const Pane = styled(Tab.Pane)`
     img {
         border-radius: 8px;
         border: 1px solid var(--grey1);
+        margin-bottom: 0.5rem;
     }
 
     main {
@@ -24,6 +25,15 @@ export const Pane = styled(Tab.Pane)`
 
         div {
             padding: 0.8rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        main {
+            flex-direction: column;
+            img {
+                width: 100%;
+            }
         }
     }
 

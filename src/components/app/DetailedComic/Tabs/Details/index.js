@@ -21,33 +21,23 @@ const panes = ({ comic }) => ([
                 <main>
                     <div>
                         <img src={comic?.images[0]?.path + "/portrait_incredible.jpg"} />
+                        <Button fluid color="green" icon as="a">
+                            <Icon name='dollar' />
+                            <strong>
+                                {comic?.prices[0].price}
+                            </strong>
+                        </Button>
                     </div>
                     <div>
                         <div>
                             <h3>Descrição</h3>
                             <article>{comic?.description}</article>
                         </div>
-                        <div>
-                            <div>
-                                <Icon name='dollar' />
-                                <strong>
-                                    {comic?.prices[0].price}
-                                </strong>
-                            </div>
-                            <Button color="green" icon as="a">
-                                <Icon name="shopping bag" />
-                                <span>Adquirir</span>
-                            </Button>
-                        </div>
                     </div>
                 </main>
             </Pane>
         ),
     },
-    {
-        menuItem: "Personagens",
-        render: () => <Pane attached={false}>Tab 2 Content</Pane>,
-    }
 ]);
 
 export const DetailsTab = ({ comic }) => (
