@@ -2,6 +2,7 @@ import React from "react";
 
 import { Button, Form, Grid, Header, Message, Segment } from "semantic-ui-react";
 import { CustomModal } from "../../core/CustomModal";
+import { RegisterModal } from "../RegisterModal";
 
 function LoginModal({ children }) {
     return (
@@ -19,7 +20,7 @@ function LoginModal({ children }) {
                 <Button color="blue" fluid size="large">Entrar</Button>
             </Form>
             <Message>
-                Novo por aqui? <a href="#"><strong>Cadastre-se!</strong></a>
+                Novo por aqui? <RegisterModal><a href="#"><strong>Cadastre-se!</strong></a></RegisterModal>
             </Message>
         </CustomModal>
     );
