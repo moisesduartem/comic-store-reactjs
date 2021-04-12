@@ -1,11 +1,14 @@
 import React from "react";
 
 import { ThemeProvider } from "styled-components";
+import { AuthProvider } from "./auth";
 
 export function ApplicationContextProvider({ children }) {
     return (
         <ThemeProvider theme={{}}>
-            {children}
+            <AuthProvider>
+                {children}
+            </AuthProvider>
         </ThemeProvider>
     );
 }

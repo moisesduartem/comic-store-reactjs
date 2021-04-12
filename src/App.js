@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 
 import { GlobalStyle } from './globalStyles';
+import { ToastContainer } from "react-toastify";
+
 import { ApplicationContextProvider } from './store/context';
 
 import Routes from './routes';
@@ -13,6 +15,7 @@ function App() {
           <Routes />
         </div>
         <GlobalStyle />
+        <ToastContainer />
       </Fragment>
     </ApplicationContextProvider>
   );
