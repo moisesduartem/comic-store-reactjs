@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 import { Card, Icon, Image } from 'semantic-ui-react';
 
-import unkownHeroPathImage from '../../../assets/images/unknown_hero.jpg';
-import { getModifiedAt, limitText } from '../../../utils/functions';
+import unkownHeroPathImage from '../../../../assets/images/unknown_hero.jpg';
+import { getModifiedAt, limitText } from '../../../../utils/functions';
 
 function ComicListCard({ data }) {
 

@@ -4,8 +4,8 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 
 import { PageContent } from './styles';
 
-import AppFooter from '../components/AppFooter';
-import AppHeader from '../components/AppHeader';
+import AppFooter from '../components/app/AppFooter';
+import AppHeader from '../components/app/AppHeader';
 
 import ProtectedRoutes from './protected.routes';
 import GuestRoutes from './guest.routes';

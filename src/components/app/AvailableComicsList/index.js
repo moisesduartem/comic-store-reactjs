@@ -17,4 +17,4 @@ function AvailableComicsList({ comics }) {
     );
 }
 
-export default AvailableComicsList;
+export { AvailableComicsList };

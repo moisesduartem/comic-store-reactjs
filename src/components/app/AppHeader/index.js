@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Dropdown, Menu } from 'semantic-ui-react';
-import { LoginModal } from '../LoginModal';
+import { LoginModal } from '../../LoginModal';
 
 function AppHeader() {
 

@@ -1,8 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import { AvailableComicsList } from '../../components/app/AvailableComicsList';
 
 import { marvel } from '../../services/marvel';
-
-import AvailableComicsList from '../../components/AvailableComicsList';
 
 function Comics() {
 
