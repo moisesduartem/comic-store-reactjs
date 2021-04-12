@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { DetailedComic } from "../../../components/app/DetailedComic";
-import { GoBackArrow } from "../../../components/core/Icons";
+import { GoBackArrow } from "../../../components/core/Arrow/GoBack";
 import { marvel } from "../../../services/marvel";
 
 function ComicDetail({ match }) {
