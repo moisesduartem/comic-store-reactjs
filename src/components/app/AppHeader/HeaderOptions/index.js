@@ -3,6 +3,7 @@ import { Redirect } from "react-router";
 
 import { Dropdown } from "semantic-ui-react";
 import { shop } from "../../../../services/shop";
+import { toasts } from "../../../../utils/customToasts";
 import { CustomConfirmModal } from "../../../core/CustomConfirmModal";
 
 import { LoginModal } from "../../LoginModal";
@@ -11,9 +12,13 @@ import { RegisterModal } from "../../RegisterModal";
 function HeaderOptions({ user }) {
 
     function logout() {
+        
+        toasts.success("Até a próxima!");
+
         localStorage.clear();
         shop.api.defaults.headers.Authorization = "";
         window.location.reload();
+    
     }
 
     if (!!user) {
