@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button, Form, Grid, Header, Message, Segment } from "semantic-ui-react";
+import { Button, Form, Header, Message } from "semantic-ui-react";
 import { CustomModal } from "../../core/CustomModal";
 import { RegisterModal } from "../RegisterModal";
 

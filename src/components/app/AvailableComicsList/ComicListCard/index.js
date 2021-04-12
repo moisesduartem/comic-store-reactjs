@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
 
 import { Card, Icon, Image } from 'semantic-ui-react';
 
@@ -27,7 +26,7 @@ function ComicListCard({ data }) {
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <a>
+                    <a href="#">
                         <Icon name='dollar' />
                         {comicPrice}
                     </a>

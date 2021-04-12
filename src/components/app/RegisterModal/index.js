@@ -12,11 +12,10 @@ function RegisterModal({ children }) {
 
     const { handleInput, form } = useForm();
 
-    const areFieldsFilled = !!form?.name && !!form?.email && !!form?.username && !!form?.password && !!form?.passwordConfirmation;
-
-    const arePasswordsDifferent = form?.password !== form?.passwordConfirmation;
-
     useEffect(() => {
+
+        const areFieldsFilled = !!form?.name && !!form?.email && !!form?.username && !!form?.password && !!form?.passwordConfirmation;
+        const arePasswordsDifferent = form?.password !== form?.passwordConfirmation;
 
         setDisabled(!areFieldsFilled);
         setPasswordError(areFieldsFilled && arePasswordsDifferent);
