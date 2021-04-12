@@ -10,11 +10,12 @@ import AppHeader from '../components/app/AppHeader';
 import ProtectedRoutes from './protected.routes';
 import GuestRoutes from './guest.routes';
 import CommmonRoutes from './common.routes';
+import { useAuth } from '../store/context/auth';
 
 function Routes() {
 
-    const isLogged = false;
-    const ApplicationRoutes = isLogged ? ProtectedRoutes : GuestRoutes;
+    const { signed } = useAuth();
+    const ApplicationRoutes = signed ? ProtectedRoutes : GuestRoutes;
 
     return (
         <BrowserRouter>

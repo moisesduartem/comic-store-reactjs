@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
+import { Redirect } from "react-router";
 
 import { Dropdown } from "semantic-ui-react";
+import { shop } from "../../../../services/shop";
 import { CustomConfirmModal } from "../../../core/CustomConfirmModal";
 
 import { LoginModal } from "../../LoginModal";
@@ -8,14 +10,23 @@ import { RegisterModal } from "../../RegisterModal";
 
 function HeaderOptions({ user }) {
 
+    function logout() {
+        localStorage.clear();
+        shop.api.defaults.headers.Authorization = "";
+        window.location.reload();
+    }
+
     if (!!user) {
         return (
             <Fragment>
                 <Dropdown.Item>Histórico de Compras</Dropdown.Item>
                 <CustomConfirmModal
                     title="Logout"
-                    content="Deseja sair da sua conta?"
-                    onConfirm={() => {}}
+                    content={<Fragment>Deseja <strong>realmente</strong> sair da sua conta?</Fragment>}
+                    onConfirm={(setOpen) => {
+                        setOpen(false);
+                        logout();
+                    }}
                 >
                     <Dropdown.Item>Sair</Dropdown.Item>
                 </CustomConfirmModal>

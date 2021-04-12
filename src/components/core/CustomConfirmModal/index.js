@@ -17,7 +17,7 @@ function CustomConfirmModal({ title, size, content, children, onConfirm, ...rest
             <Modal.Content>{content}</Modal.Content>
             <Modal.Actions>
                 <Button negative onClick={() => setOpen(false)}>Não</Button>
-                <Button positive onClick={onConfirm}>Sim</Button>
+                <Button positive onClick={() => onConfirm(setOpen)}>Sim</Button>
             </Modal.Actions>
         </Modal>
     );
