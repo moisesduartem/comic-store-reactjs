@@ -11,6 +11,7 @@ const marvelAuth = {
 const marvelRoutes = {
     comics: {
         listAll: `/v1/public/comics?${marvelAuth.queryString}`,
+        getOne: comicId => `/v1/public/comics/${comicId}?${marvelAuth.queryString}`
     },
 };
 
@@ -19,7 +20,10 @@ const marvel = {
     authStrings: marvelAuth,
     routes: marvelRoutes,
     async comics() {
-        return await this.api.get(`${this.routes.comics.listAll}`);
+        return await this.api.get(this.routes.comics.listAll);
+    },
+    async getComic({ comicId }) {
+        return await this.api.get(this.routes.comics.getOne(comicId))
     }
 };
 
