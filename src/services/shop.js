@@ -14,10 +14,10 @@ shopApi.interceptors.response.use(
         return response;
     }, async function (err) {
 
-        const status = err.response.status;
+        const status = err?.response?.status;
 
-        if (status >= 400) {
-            toasts.error(err.response.data?.message ?? "Ocorreu um erro inesperado.");
+        if (status >= 400 || !status) {
+            toasts.error(err?.response?.data?.message ?? "Ocorreu um erro inesperado.");
             return;
         }
         return Promise.reject(err);
