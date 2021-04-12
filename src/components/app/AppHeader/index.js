@@ -1,9 +1,12 @@
 import React, { Fragment } from 'react';
+
+import { useAuth } from "../../../store/context/auth";
 import { Dropdown, Menu } from 'semantic-ui-react';
-import { LoginModal } from '../LoginModal';
-import { RegisterModal } from '../RegisterModal';
+import { HeaderOptions } from './HeaderOptions';
 
 function AppHeader() {
+
+    const { user } = useAuth();
 
     return (
         <Fragment>
@@ -12,14 +15,9 @@ function AppHeader() {
                     Comic Store
                 </Menu.Item>
                 <Menu.Item position="right">
-                    <Dropdown text="Login">
+                    <Dropdown text={user?.name ?? "Login"}>
                         <Dropdown.Menu direction="left">
-                            <LoginModal>
-                                <Dropdown.Item onClick={() => { }}>Acesse com sua conta</Dropdown.Item>
-                            </LoginModal>
-                            <RegisterModal>
-                                <Dropdown.Item>Não possui conta? <strong>Junte-se a nós!</strong></Dropdown.Item>
-                            </RegisterModal>
+                            <HeaderOptions user={user} />
                         </Dropdown.Menu>
                     </Dropdown>
                 </Menu.Item>
