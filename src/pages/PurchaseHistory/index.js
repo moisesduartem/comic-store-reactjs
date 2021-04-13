@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Table } from "semantic-ui-react";
+import { PurchaseTableRow } from "../../components/app/PurchaseTableRow";
 
 import { shop } from "../../services/shop";
 
@@ -29,17 +30,14 @@ function PurchaseHistory() {
                 <Table.Header>
                     <Table.Row>
                         <Table.HeaderCell>Código</Table.HeaderCell>
+                        <Table.HeaderCell>Quadrinho</Table.HeaderCell>
                         <Table.HeaderCell>Preço</Table.HeaderCell>
                         <Table.HeaderCell>Data</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
                 <Table.Body>
                     {purchases?.map((purchase, index) => (
-                        <Table.Row key={index}>
-                            <Table.Cell>{purchase.comicId}</Table.Cell>
-                            <Table.Cell>$ {purchase.price}</Table.Cell>
-                            <Table.Cell>{(getDateTime(purchase.createdAt, (date, time) => `${date} às ${time}`))}</Table.Cell>
-                        </Table.Row>
+                        <PurchaseTableRow key={index} purchase={purchase} />
                     ))}
                 </Table.Body>
             </Table>
