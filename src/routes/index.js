@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useAuth } from '../store/context/auth';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
 import { ComicDetail } from '../pages/Comics/Detail';
 
@@ -28,6 +28,7 @@ function Routes() {
                     <Route exact path='/comics' component={Comics} />
                     <Route exact path="/comics/:comicId" component={ComicDetail} />
                     {!!signed && <ProtectedRoutes />}
+                    <Route path="*" component={() => <Redirect to="/comics" />} />
                 </Switch>
             </PageContent>
             <AppFooter />

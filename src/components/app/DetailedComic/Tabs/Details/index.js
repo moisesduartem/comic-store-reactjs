@@ -36,7 +36,7 @@ const panes = ({ comic, characters }) => ([
                     <div>
                         <div>
                             <h3>Descrição</h3>
-                            <article>{comic?.description}</article>
+                            <article>{comic?.description ?? "Não há descrição disponível para esse quadrinho no momento."}</article>
                         </div>
                         <div>
                             <h3>Personagens</h3>

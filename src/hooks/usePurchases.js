@@ -9,7 +9,7 @@ export function usePurchases() {
 
         const loadPurchases = async () => {
             const response = await shop.purchases();
-            setPurchases(response.data.purchases);
+            setPurchases(response?.data?.purchases);
         };
 
         if (!purchases) {
