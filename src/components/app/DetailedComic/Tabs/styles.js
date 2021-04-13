@@ -26,9 +26,15 @@ export const Pane = styled(Tab.Pane)`
         div {
             padding: 0.8rem;
         }
+
+        .heroes {
+            img {
+                margin: auto 2px;
+            }
+        }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 720px) {
         main {
             flex-direction: column;
             img {

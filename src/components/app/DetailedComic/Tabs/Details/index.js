@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Button, Divider, Grid, Header, Icon, Image, Step, Tab } from "semantic-ui-react";
+
+import { Button, Divider, Header, Icon, Tab } from "semantic-ui-react";
 import { marvel } from "../../../../../services/marvel";
 import { Pane } from "../styles";
 
@@ -36,7 +37,11 @@ const panes = ({ comic, characters }) => ([
                         </div>
                         <div>
                             <h3>Personagens</h3>
-                            <article>{comic?.description}</article>
+                            <div class="heroes">
+                                {characters?.map((hero, i) => (
+                                    <img key={hero.id} src={hero.thumbnail.path + "/standard_medium.jpg"} />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </main>
@@ -52,16 +57,13 @@ function DetailsTab({ comic }) {
     useEffect(() => {
 
         const loadComics = async () => {
-            const response = await marvel.getComicCharacters({ comicId: comic.id });
+            const response = await marvel.getComicCharacters({ comicId: comic?.id });
             setCharacters(response.data.data.results);
         };
 
+        loadComics();
 
-        if (!characters) {
-            loadComics();
-        }
-
-    }, [characters]);
+    }, [comic]);
 
     return (
         <Tab menu={{ secondary: true, pointing: true }} panes={panes({ comic, characters })} />
