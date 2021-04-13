@@ -16,7 +16,7 @@ function AppHeader() {
 
     useEffect(() => {
         setMustBack(pathname !== "/" && pathname !== "/comics");
-    });
+    }, [pathname]);
 
     const LeftSideItem = () => (
         mustBack ? <GoBackArrow onClick={() => history.goBack()} /> :

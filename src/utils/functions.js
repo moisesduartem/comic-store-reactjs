@@ -6,7 +6,7 @@ export function getModifiedAt({ date }) {
 
     const _date = new Date(date);
 
-    if (_date == 'Invalid Date') {
+    if (String(_date).includes('Invalid Date')) {
         return '';
     }
 

@@ -19,7 +19,7 @@ function PurchaseTableRow({ purchase }) {
             console.log(comic);
         }
 
-    }, [comic]);
+    }, [comic, purchase.comicId]);
 
     return (
         <Table.Row>

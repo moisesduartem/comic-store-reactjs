@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 
-import { Link } from 'react-router-dom';
 import { Card, Icon, Image } from 'semantic-ui-react';
 
 import unkownHeroPathImage from '../../../../assets/images/unknown_hero.jpg';
@@ -8,7 +7,7 @@ import { getModifiedAt, limitText } from '../../../../utils/functions';
 
 function ComicListCard({ data }) {
 
-    const comicPrice = (data?.prices[0]?.price != 0 ? data?.prices[0]?.price : "FREE");
+    const comicPrice = (data?.prices[0]?.price !== 0 ? data?.prices[0]?.price : "FREE");
 
     const marvelImagePath = data?.images[0]?.path;
     const cardImage = marvelImagePath ? `${marvelImagePath}/standard_incredible.jpg` : unkownHeroPathImage;
@@ -18,10 +17,8 @@ function ComicListCard({ data }) {
             <Card>
                 <Image src={cardImage} wrapped ui={false} />
                 <Card.Content>
-                    <Card.Header as="a">
-                        <Link to={`comics/` + data.id}>
-                            {data.title}
-                        </Link>
+                    <Card.Header as="a" href={`comics/` + data.id}>
+                        {data.title}
                     </Card.Header>
                     <Card.Meta>
                         <span className='date'>{getModifiedAt({ date: data?.modified })}</span>
