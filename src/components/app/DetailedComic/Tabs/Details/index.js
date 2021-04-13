@@ -3,7 +3,28 @@ import React, { useEffect, useState } from "react";
 import { Button, Divider, Header, Icon, Popup, Tab } from "semantic-ui-react";
 import { marvel } from "../../../../../services/marvel";
 import { PurchaseModal } from "../../../PurchaseModal";
+import { LoginModal } from "../../../LoginModal";
 import { Pane } from "../styles";
+import { useAuth } from "../../../../../store/context/auth";
+
+function LoginBeforePurchaseModal({ comic, children }) {
+
+    const { signed } = useAuth();
+
+    if (!!signed) {
+        return (
+            <PurchaseModal comic={comic}>
+                {children}
+            </PurchaseModal>
+        );
+    }
+
+    return (
+        <LoginModal>
+            {children}
+        </LoginModal>
+    );
+}
 
 const panes = ({ comic, characters }) => ([
     {
@@ -24,14 +45,14 @@ const panes = ({ comic, characters }) => ([
                 <main>
                     <div>
                         <img src={comic?.images[0]?.path + "/portrait_incredible.jpg"} alt="Comic" />
-                        <PurchaseModal comic={comic}>
+                        <LoginBeforePurchaseModal comic={comic}>
                             <Button fluid color="green" icon as="a">
                                 <Icon name='dollar' />
                                 <strong>
                                     {comic?.prices[0].price}
                                 </strong>
                             </Button>
-                        </PurchaseModal>
+                        </LoginBeforePurchaseModal>
                     </div>
                     <div>
                         <div>
