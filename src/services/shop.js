@@ -3,13 +3,11 @@ import https from "https";
 
 import { toasts } from "../utils/customToasts";
 
-import { ENVIROMENT } from "../env.local";
-
 const shopApi = axios.create({
     httpsAgent: new https.Agent({
         rejectUnauthorized: false,
     }),
-    baseURL: ENVIROMENT.BACKEND_URL,
+    baseURL: "https://comicstoreapi20210412215434.azurewebsites.net/api",
 });
 
 shopApi.interceptors.response.use(
