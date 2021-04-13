@@ -23,7 +23,7 @@ const panes = ({ comic, characters }) => ([
                 <Divider />
                 <main>
                     <div>
-                        <img src={comic?.images[0]?.path + "/portrait_incredible.jpg"} />
+                        <img src={comic?.images[0]?.path + "/portrait_incredible.jpg"} alt="Comic" />
                         <PurchaseModal comic={comic}>
                             <Button fluid color="green" icon as="a">
                                 <Icon name='dollar' />
@@ -44,7 +44,7 @@ const panes = ({ comic, characters }) => ([
                                 {characters?.map((hero, i) => (
                                     <Popup
                                         key={hero.id}
-                                        trigger={<img key={hero.id} src={hero.thumbnail.path + "/standard_medium.jpg"} />}
+                                        trigger={<img alt="Hero" key={hero.id} src={hero.thumbnail.path + "/standard_medium.jpg"} />}
                                         content={hero.name}
                                         inverted
                                     />

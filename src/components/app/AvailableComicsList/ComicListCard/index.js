@@ -28,10 +28,8 @@ function ComicListCard({ data }) {
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <a href="#">
-                        <Icon name='dollar' />
-                        {comicPrice}
-                    </a>
+                    <Icon name='dollar' />
+                    {comicPrice}
                 </Card.Content>
             </Card>
         </Fragment>

@@ -42,7 +42,7 @@ function LoginModal({ children }) {
                 <Button color="blue" fluid size="large">Entrar</Button>
             </Form>
             <Message>
-                Novo por aqui? <RegisterModal><a href="#"><strong>Cadastre-se!</strong></a></RegisterModal>
+                Novo por aqui? <RegisterModal><strong>Cadastre-se!</strong></RegisterModal>
             </Message>
         </CustomModal>
     );
