@@ -12,7 +12,7 @@ function CommmonRoutes() {
         <Fragment>
             <Route exact path='/' component={Home} />
             <Route exact path='/comics' component={Comics} />
-            <Route path="/comics/:comicId" component={ComicDetail} />
+            <Route exact path="/comics/:comicId" component={ComicDetail} />
         </Fragment>
     );
 }

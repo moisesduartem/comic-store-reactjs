@@ -19,8 +19,8 @@ function AppHeader() {
     });
 
     const LeftSideItem = () => (
-        mustBack ? <GoBackArrow onClick={() => history.goBack()} /> : 
-        <Menu.Item as="a" header position="left" href="/">Comic Store</Menu.Item>
+        mustBack ? <GoBackArrow onClick={() => history.goBack()} /> :
+            <Menu.Item as="a" header position="left" href="/">Comic Store</Menu.Item>
     );
 
     return (
@@ -39,4 +39,4 @@ function AppHeader() {
     );
 }
 
-export default AppHeader;
+export { AppHeader };

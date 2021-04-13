@@ -30,4 +30,4 @@ function Comics() {
     );
 }
 
-export default Comics;
+export { Comics };

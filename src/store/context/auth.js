@@ -33,7 +33,6 @@ export function AuthProvider({ children }) {
             localStorage.setItem("comicStore:user", JSON.stringify(response?.data?.user));
             localStorage.setItem("comicStore:token", response?.data?.token);
             shop.api.defaults.headers.Authorization = `Bearer ${response?.data?.token}`;
-
             toasts.success(`Bem-vindo(a)${(", " + response.data.user.name.split(" ")[0]) ?? ""}!`);
         }
 

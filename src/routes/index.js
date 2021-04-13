@@ -1,29 +1,33 @@
 import React from 'react';
 
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { useAuth } from '../store/context/auth';
+
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import { ComicDetail } from '../pages/Comics/Detail';
 
 import { PageContent } from './styles';
 
-import AppFooter from '../components/app/AppFooter';
-import AppHeader from '../components/app/AppHeader';
+import { Home } from '../pages/Home';
+import { Comics } from '../pages/Comics';
+import { AppFooter } from '../components/app/AppFooter';
+import { AppHeader } from '../components/app/AppHeader';
 
-import ProtectedRoutes from './protected.routes';
-import GuestRoutes from './guest.routes';
-import CommmonRoutes from './common.routes';
-import { useAuth } from '../store/context/auth';
+import { ProtectedRoutes } from "./protected.routes";
 
 function Routes() {
 
     const { signed } = useAuth();
-    const ApplicationRoutes = signed ? ProtectedRoutes : GuestRoutes;
 
     return (
         <BrowserRouter>
             <AppHeader />
             <PageContent>
                 <Switch>
-                    <CommmonRoutes />
-                    <ApplicationRoutes />
+                    <Route exact path='/' component={Home} />
+                    <Route exact path='/comics' component={Comics} />
+                    <Route exact path="/comics/:comicId" component={ComicDetail} />
+                    {!!signed && <ProtectedRoutes />}
                 </Switch>
             </PageContent>
             <AppFooter />

@@ -18,4 +18,4 @@ function AppFooter() {
     );
 }
 
-export default AppFooter;
+export { AppFooter };

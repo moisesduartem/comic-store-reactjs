@@ -19,4 +19,4 @@ function Home() {
         </Fragment>
     );
 }
-export default Home;
+export { Home };
