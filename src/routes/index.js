@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { useAuth } from '../store/context/auth';
 
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { ComicDetail } from '../pages/Comics/Detail';
 
