@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Button, Divider, Header, Icon, Tab } from "semantic-ui-react";
+import { Button, Divider, Header, Icon, Popup, Tab } from "semantic-ui-react";
 import { marvel } from "../../../../../services/marvel";
 import { Pane } from "../styles";
 
@@ -37,9 +37,14 @@ const panes = ({ comic, characters }) => ([
                         </div>
                         <div>
                             <h3>Personagens</h3>
-                            <div class="heroes">
+                            <div className="heroes">
                                 {characters?.map((hero, i) => (
-                                    <img key={hero.id} src={hero.thumbnail.path + "/standard_medium.jpg"} />
+                                    <Popup
+                                        key={hero.id}
+                                        trigger={<img key={hero.id} src={hero.thumbnail.path + "/standard_medium.jpg"} />}
+                                        content={hero.name}
+                                        inverted
+                                    />
                                 ))}
                             </div>
                         </div>
