@@ -44,7 +44,10 @@ const shop = {
     },
     async purchases() {
         return await this.api.get(this.routes.userPurchases);
-    }
+    },
+    async purchase({ comicId, price }) {
+        return await this.api.post(this.routes.userPurchases, { comicId, price });
+    },
 };
 
 export {
