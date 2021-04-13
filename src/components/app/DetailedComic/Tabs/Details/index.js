@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Button, Divider, Header, Icon, Popup, Tab } from "semantic-ui-react";
 import { marvel } from "../../../../../services/marvel";
+import { PurchaseModal } from "../../../PurchaseModal";
 import { Pane } from "../styles";
 
 const panes = ({ comic, characters }) => ([
@@ -23,12 +24,14 @@ const panes = ({ comic, characters }) => ([
                 <main>
                     <div>
                         <img src={comic?.images[0]?.path + "/portrait_incredible.jpg"} />
-                        <Button fluid color="green" icon as="a">
-                            <Icon name='dollar' />
-                            <strong>
-                                {comic?.prices[0].price}
-                            </strong>
-                        </Button>
+                        <PurchaseModal comic={comic}>
+                            <Button fluid color="green" icon as="a">
+                                <Icon name='dollar' />
+                                <strong>
+                                    {comic?.prices[0].price}
+                                </strong>
+                            </Button>
+                        </PurchaseModal>
                     </div>
                     <div>
                         <div>
