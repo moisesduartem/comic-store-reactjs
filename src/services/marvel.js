@@ -5,7 +5,7 @@ const marvelApi = axios.create({
 });
 
 const marvelAuth = {
-    queryString: 'ts=1&hash=59a40e00f0a0f92c0285772d2f7b8aca&apikey=27b4d86ddb9329c6c5cad7f2d60860e1',
+    queryString: 'ts=1&hash=319febba2e471400e044de81d6805b97&apikey=ba4be53e060ec62dd1e5fc33169745a2',
 };
 
 const marvelRoutes = {
