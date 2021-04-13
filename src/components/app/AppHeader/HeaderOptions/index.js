@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { useHistory } from "react-router";
 
 import { Dropdown } from "semantic-ui-react";
 import { shop } from "../../../../services/shop";
@@ -10,14 +11,14 @@ import { RegisterModal } from "../../RegisterModal";
 
 function HeaderOptions({ user }) {
 
+    const history = useHistory();
+
     function logout() {
-
         toasts.success("Até a próxima!");
-
         localStorage.clear();
         shop.api.defaults.headers.Authorization = "";
+        history.push("/comics");
         window.location.reload();
-
     }
 
     if (!!user) {
