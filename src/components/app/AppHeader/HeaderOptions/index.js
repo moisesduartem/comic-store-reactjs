@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { Redirect } from "react-router";
+import { Link } from "react-router-dom";
 
 import { Dropdown } from "semantic-ui-react";
 import { shop } from "../../../../services/shop";
@@ -12,19 +13,19 @@ import { RegisterModal } from "../../RegisterModal";
 function HeaderOptions({ user }) {
 
     function logout() {
-        
+
         toasts.success("Até a próxima!");
 
         localStorage.clear();
         shop.api.defaults.headers.Authorization = "";
         window.location.reload();
-    
+
     }
 
     if (!!user) {
         return (
             <Fragment>
-                <Dropdown.Item>Histórico de Compras</Dropdown.Item>
+                <Dropdown.Item as="a" href="/account/purchases">Histórico de Compras</Dropdown.Item>
                 <CustomConfirmModal
                     title="Logout"
                     content={<Fragment>Deseja <strong>realmente</strong> sair da sua conta?</Fragment>}
@@ -42,7 +43,7 @@ function HeaderOptions({ user }) {
     return (
         <Fragment>
             <LoginModal>
-                <Dropdown.Item onClick={() => { }}>Acesse com sua conta</Dropdown.Item>
+                <Dropdown.Item>Acesse com sua conta</Dropdown.Item>
             </LoginModal>
             <RegisterModal>
                 <Dropdown.Item>Não possui conta? <strong>Junte-se a nós!</strong></Dropdown.Item>
