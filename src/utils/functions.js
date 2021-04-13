@@ -14,6 +14,21 @@ export function getModifiedAt({ date }) {
 }
 
 /**
+ * A partir de data UTC,
+ * passa data e horário
+ * para callback.
+ */
+export function getDateTime(val, callback) {
+
+    const dateObj = new Date(val);
+
+    const date = new Intl.DateTimeFormat("pt-BR", { dateStyle: "medium" }).format(dateObj);
+    const time = new Intl.DateTimeFormat("pt-BR", { timeStyle: "medium" }).format(dateObj);
+
+    return callback(date, time);
+}
+
+/**
  * Se o valor da string passada
  * for maior que o limite fornecido,
  * a mesma será encurtada até chegar nesse limite

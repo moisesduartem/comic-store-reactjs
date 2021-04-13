@@ -1,33 +1,46 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Table } from "semantic-ui-react";
 
+import { shop } from "../../services/shop";
+
+import { getDateTime } from "../../utils/functions";
+
 function PurchaseHistory() {
+
+
+    const [purchases, setPurchases] = useState();
+
+    useEffect(() => {
+
+        const loadPurchases = async () => {
+            const response = await shop.purchases();
+            setPurchases(response.data.purchases);
+        };
+
+        if (!purchases) {
+            loadPurchases();
+        }
+
+    }, [purchases]);
+
     return (
         <Fragment>
             <Table basic>
                 <Table.Header>
                     <Table.Row>
-                        <Table.HeaderCell>Name</Table.HeaderCell>
-                        <Table.HeaderCell>Status</Table.HeaderCell>
-                        <Table.HeaderCell>Notes</Table.HeaderCell>
+                        <Table.HeaderCell>Código</Table.HeaderCell>
+                        <Table.HeaderCell>Preço</Table.HeaderCell>
+                        <Table.HeaderCell>Data</Table.HeaderCell>
                     </Table.Row>
                 </Table.Header>
                 <Table.Body>
-                    <Table.Row>
-                        <Table.Cell>John</Table.Cell>
-                        <Table.Cell>Approved</Table.Cell>
-                        <Table.Cell>None</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                        <Table.Cell>Jamie</Table.Cell>
-                        <Table.Cell>Approved</Table.Cell>
-                        <Table.Cell>Requires call</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                        <Table.Cell>Jill</Table.Cell>
-                        <Table.Cell>Denied</Table.Cell>
-                        <Table.Cell>None</Table.Cell>
-                    </Table.Row>
+                    {purchases?.map((purchase, index) => (
+                        <Table.Row key={index}>
+                            <Table.Cell>{purchase.comicId}</Table.Cell>
+                            <Table.Cell>$ {purchase.price}</Table.Cell>
+                            <Table.Cell>{(getDateTime(purchase.createdAt, (date, time) => `${date} às ${time}`))}</Table.Cell>
+                        </Table.Row>
+                    ))}
                 </Table.Body>
             </Table>
         </Fragment>

@@ -30,6 +30,7 @@ shopApi.interceptors.response.use(
 const shopRoutes = {
     login: "/v1/account/login",
     register: "/v1/account/register",
+    userPurchases: "/v1/users/purchases",
 };
 
 const shop = {
@@ -41,6 +42,9 @@ const shop = {
     async register({ name, email, username, password }) {
         return await this.api.post(this.routes.register, { name, email, username, password });
     },
+    async purchases() {
+        return await this.api.get(this.routes.userPurchases);
+    }
 };
 
 export {
