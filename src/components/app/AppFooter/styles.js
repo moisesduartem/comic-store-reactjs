@@ -12,4 +12,10 @@ export const PageFooter = styled(Container)`
         bottom: 0;
     }
 
+    @media (max-width: 768px) {
+        & {
+            visibility: hidden;
+        }
+    }
+
 `;
