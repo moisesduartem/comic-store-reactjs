@@ -1,28 +1,12 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
+
 import { Table } from "semantic-ui-react";
 import { PurchaseTableRow } from "../../components/app/PurchaseTableRow";
-
-import { shop } from "../../services/shop";
-
-import { getDateTime } from "../../utils/functions";
+import { usePurchases } from "../../hooks/usePurchases";
 
 function PurchaseHistory() {
 
-
-    const [purchases, setPurchases] = useState();
-
-    useEffect(() => {
-
-        const loadPurchases = async () => {
-            const response = await shop.purchases();
-            setPurchases(response.data.purchases);
-        };
-
-        if (!purchases) {
-            loadPurchases();
-        }
-
-    }, [purchases]);
+    const { purchases } = usePurchases();
 
     return (
         <Fragment>
