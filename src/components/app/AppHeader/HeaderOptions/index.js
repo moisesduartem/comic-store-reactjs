@@ -1,6 +1,4 @@
 import React, { Fragment } from "react";
-import { Redirect } from "react-router";
-import { Link } from "react-router-dom";
 
 import { Dropdown } from "semantic-ui-react";
 import { shop } from "../../../../services/shop";
