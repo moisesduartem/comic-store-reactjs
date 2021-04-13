@@ -25,7 +25,7 @@ function PurchaseHistory() {
 
     return (
         <Fragment>
-            <Table basic>
+            <Table>
                 <Table.Header>
                     <Table.Row>
                         <Table.HeaderCell>Código</Table.HeaderCell>
